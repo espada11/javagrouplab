@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<VBox spacing="10" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="org.example.lodgebilling.HelloController">
+    <padding><Insets top="10" left="10" right="10" bottom="10"/></padding>
+    <MenuBar><Menu text="File"><MenuItem text="New guest" onAction="#handleNewGuest"/><MenuItem text="View receipt" onAction="#handleViewReceipt"/><MenuItem text="Delete selected bill" onAction="#handleDelete"/></Menu></MenuBar>
+    <HBox spacing="5"><Button text="New guest" onAction="#handleNewGuest"/><Button text="View receipt" onAction="#handleViewReceipt"/><Button text="Delete selected bill" onAction="#handleDelete"/></HBox>
+    <Label style="-fx-font-weight: bold; -fx-font-size: 16;" text="Lodge Billing Lab"/>
+    <GridPane hgap="10" vgap="10">
+        <Label text="Guest name" GridPane.rowIndex="0" GridPane.columnIndex="0"/><TextField fx:id="guestNameField" promptText="John Phiri" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+        <Label text="Room type" GridPane.rowIndex="1" GridPane.columnIndex="0"/><ComboBox fx:id="roomTypeBox" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+        <Label text="Nights" GridPane.rowIndex="2" GridPane.columnIndex="0"/><TextField fx:id="nightsField" promptText="5" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+        <Label text="Extras in K" GridPane.rowIndex="3" GridPane.columnIndex="0"/><TextField fx:id="extrasField" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+        <Label text="Amount paid in K" GridPane.rowIndex="4" GridPane.columnIndex="0"/><TextField fx:id="paidField" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+        <Label text="Notes" GridPane.rowIndex="5" GridPane.columnIndex="0"/><TextField fx:id="notesField" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+        <Label fx:id="priceLabel" GridPane.rowIndex="0" GridPane.columnIndex="2" GridPane.rowSpan="3" text="Practice room prices&#10;Standard: K 350.00 per night&#10;Deluxe: K 550.00 per night&#10;Family: K 750.00 per night"/>
+        <Label fx:id="discountLabel" GridPane.rowIndex="3" GridPane.columnIndex="2" GridPane.rowSpan="2" text="5 nights or more: 5% off the room charge&#10;Extras get no discount. No tax in this lab.&#10;Saved bills last only until you close the app."/>
+    </GridPane>
+    <HBox spacing="10"><Button text="Calculate" onAction="#handleCalculate"/><Button fx:id="saveBillBtn" style="-fx-background-color: #4a90e2; -fx-text-fill: white;" text="Save bill" onAction="#handleSave"/><Label fx:id="statusLabel" style="-fx-font-weight: bold;"/></HBox>
+    <Label style="-fx-font-weight: bold;" text="Saved bills"/>
+    <TableView fx:id="billsTable" VBox.vgrow="ALWAYS"><columns><TableColumn fx:id="billCol" text="Bill" prefWidth="70"/><TableColumn fx:id="guestCol" text="Guest" prefWidth="120"/><TableColumn fx:id="roomCol" text="Room" prefWidth="90"/><TableColumn fx:id="nightsCol" text="Nights" prefWidth="60"/><TableColumn fx:id="totalCol" text="Total" prefWidth="100"/><TableColumn fx:id="paidCol" text="Paid" prefWidth="100"/><TableColumn fx:id="balanceCol" text="Balance" prefWidth="100"/></columns></TableView>
+</VBox>
